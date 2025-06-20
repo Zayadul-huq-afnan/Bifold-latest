@@ -6,6 +6,9 @@ import SettingsMenu from '../components/buttons/SettingsMenu'
 import { useTheme } from '../contexts/theme'
 import HistoryMenu from '../modules/history/ui/components/HistoryMenu'
 import Home from '../screens/Home'
+import SenderScreen from '../screens/SenderScreen'
+import ReceiverScreen from '../screens/ReceiverScreen'
+import BluetoothHome from '../screens/BluetoothHome'
 import { HomeStackParams, Screens } from '../types/navigators'
 
 import { useDefaultStackOptions } from './defaultStackOptions'
@@ -29,6 +32,21 @@ const HomeStack: React.FC = () => {
           headerLeft: () => <SettingsMenu />,
           ...ScreenOptionsDictionary[Screens.Home],
         })}
+      />
+      <Stack.Screen
+        name={Screens.SendScreen}
+        component={SenderScreen}
+        options={{ title: t('Screens.Send') }}
+      />
+      <Stack.Screen
+        name={Screens.ReceiveScreen}
+        component={ReceiverScreen}
+        options={{ title: t('Screens.Receive') }}
+      />
+      <Stack.Screen
+        name={Screens.BluetoothHome}
+        component={BluetoothHome}
+        options={{ title: 'Bluetooth' }}
       />
     </Stack.Navigator>
   )

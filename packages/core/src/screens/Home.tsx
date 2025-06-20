@@ -2,7 +2,8 @@ import { useIsFocused } from '@react-navigation/native'
 import { StackScreenProps } from '@react-navigation/stack'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { FlatList, View, StyleSheet } from 'react-native'
+import { FlatList, View, StyleSheet, Button } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 import { NotificationType } from '../components/listItems/NotificationListItem'
 import AppGuideModal from '../components/modals/AppGuideModal'
@@ -39,6 +40,7 @@ const Home: React.FC<HomeProps> = () => {
   const { start, stop } = useTour()
   const [showTourPopup, setShowTourPopup] = useState(false)
   const screenIsFocused = useIsFocused()
+  const navigation = useNavigation()
 
   const styles = StyleSheet.create({
     flatlist: {
@@ -129,6 +131,9 @@ const Home: React.FC<HomeProps> = () => {
   useEffect(() => {
     return stop
   }, [stop])
+
+  console.log('SendScreen rendered');
+  console.log('ReceiveScreen rendered');
 
   return (
     <>

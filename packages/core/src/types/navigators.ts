@@ -57,6 +57,9 @@ export enum Screens {
   HistoryDetails = 'History details',
   AutoLock = 'AutoLock',
   UpdateAvailable = 'Update Available',
+  SendScreen = 'Send Screen',
+  ReceiveScreen = 'Receive Screen',
+  BluetoothHome = 'Bluetooth Home',
 }
 
 export enum Stacks {
@@ -145,6 +148,9 @@ export type CredentialStackParams = {
 
 export type HomeStackParams = {
   [Screens.Home]: undefined
+  [Screens.SendScreen]: undefined
+  [Screens.ReceiveScreen]: undefined
+  [Screens.BluetoothHome]: undefined
 }
 
 export type ConnectStackParams = {

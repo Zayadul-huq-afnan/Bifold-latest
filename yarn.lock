@@ -1858,8 +1858,11 @@ __metadata:
     react-native: ^0.73.6
     react-native-animated-pagination-dots: ^0.1.72
     react-native-argon2: ^2.0.1
+    react-native-ble-peripheral: ^2.0.1
+    react-native-ble-plx: ^3.5.0
     react-native-bouncy-checkbox: ^3.0.5
     react-native-builder-bob: ^0.21.3
+    react-native-camera: ^4.2.1
     react-native-collapsible: ^1.6.1
     react-native-config: ^1.4.2
     react-native-confirmation-code-field: ^7.3.0
@@ -16402,7 +16405,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.7.2, prop-types@npm:^15.7.x, prop-types@npm:^15.8.0, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.7.x, prop-types@npm:^15.8.0, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -16663,6 +16666,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-ble-peripheral@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "react-native-ble-peripheral@npm:2.0.1"
+  checksum: fdba9c408ac468a963b4ccd0892d188213e6f901de20603916a3a276e12f7acf048eb43aa03e34d44dd9d2062975022792722be0722de58977dd693752be268c
+  languageName: node
+  linkType: hard
+
+"react-native-ble-plx@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "react-native-ble-plx@npm:3.5.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: d84ce1eefdc584c8a4891266941f5951b31c8a800d0993659d7f87ba57cb8c23c4ba09dc3d4d8bfbc1d16f64dbd7405fad2b5fd2cf79fa7578d001a22aee47ae
+  languageName: node
+  linkType: hard
+
 "react-native-bouncy-checkbox@npm:^3.0.5":
   version: 3.0.7
   resolution: "react-native-bouncy-checkbox@npm:3.0.7"
@@ -16703,6 +16723,15 @@ __metadata:
   bin:
     bob: bin/bob
   checksum: 0a7b05926556dcba0ed9dbadd1316136886bcb054b2229ff58af6ba71178c0add0bcbd31d78b11683f05cacfd8ba408f1d50d7ec6c413ae694a51b11f02ea2de
+  languageName: node
+  linkType: hard
+
+"react-native-camera@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "react-native-camera@npm:4.2.1"
+  dependencies:
+    prop-types: ^15.6.2
+  checksum: 0e84ce657774694d1cc49395c43a8f2caabc03df36aa77aacfb5c797ad8cfe0368f4807deccc54e82ff2b193e8c2d1ce7ad504eedf7a9fc4719b38e39958a804
   languageName: node
   linkType: hard
 

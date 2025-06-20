@@ -100,8 +100,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
-        missingDimensionStrategy 'react-native-camera', 'general'
     }
     signingConfigs {
         debug {
@@ -139,6 +137,9 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     implementation 'com.google.mlkit:barcode-scanning:17.2.0'
+    
+    implementation project(':react-native-ble-peripheral')
+    implementation project(':react-native-ble-plx')
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

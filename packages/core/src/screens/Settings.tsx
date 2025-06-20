@@ -25,7 +25,7 @@ import { useTheme } from '../contexts/theme'
 import { useDeveloperMode } from '../hooks/developer-mode'
 import { Locales } from '../localization'
 import { GenericFn } from '../types/fn'
-import { Screens, SettingStackParams, Stacks } from '../types/navigators'
+import { Screens, SettingStackParams, Stacks, TabStacks } from '../types/navigators'
 import { SettingIcon, SettingSection } from '../types/settings'
 import { testIdWithKey } from '../utils/testable'
 
@@ -117,6 +117,21 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
           testID: testIdWithKey('WhatAreContacts'),
           onPress: () => navigation.getParent()?.navigate(Stacks.ContactStack, { screen: Screens.WhatAreContacts }),
           value: undefined,
+        },
+      ],
+    },
+    {
+      header: {
+        icon: { name: 'verified-user' },
+        title: 'Verify',
+      },
+      data: [
+        {
+          title: 'Verify Credential',
+          value: undefined,
+          accessibilityLabel: 'Verify Credential',
+          testID: testIdWithKey('VerifyCredential'),
+          onPress: () => navigation.getParent()?.navigate(TabStacks.HomeStack, { screen: Screens.BluetoothHome }),
         },
       ],
     },

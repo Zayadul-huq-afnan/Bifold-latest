@@ -1,6 +1,6 @@
 import { AnonCredsCredentialMetadataKey } from '@credo-ts/anoncreds'
 import { CredentialExchangeRecord, CredentialState, SdJwtVcRecord, W3cCredentialRecord } from '@credo-ts/core'
-import { useCredentialByState } from '@credo-ts/react-hooks'
+import { useCredentialByState, useAgent } from '@credo-ts/react-hooks'
 import { useNavigation, useIsFocused } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import React, { useEffect } from 'react'
@@ -21,6 +21,7 @@ import { GenericCredentialExchangeRecord } from '../types/credentials'
 import { CredentialErrors } from '../components/misc/CredentialCard11'
 import { BaseTourID } from '../types/tour'
 import { OpenIDCredentialType } from '../modules/openid/types'
+import { testFetchAllCredentialMetadata } from '../data/VCMetaData'
 
 const ListCredentials: React.FC = () => {
   const { t } = useTranslation()
@@ -40,6 +41,7 @@ const ListCredentials: React.FC = () => {
   const { ColorPallet } = useTheme()
   const { start, stop } = useTour()
   const screenIsFocused = useIsFocused()
+  const { agent } = useAgent()
   const {
     openIdState: { w3cCredentialRecords, sdJwtVcRecords },
   } = useOpenIDCredentials()
@@ -61,6 +63,13 @@ const ListCredentials: React.FC = () => {
       return !credentialHideList?.includes(credDefId)
     })
   }
+
+  // Trigger metadata logging when screen is focused
+  useEffect(() => {
+    if (screenIsFocused && agent) {
+      testFetchAllCredentialMetadata(agent)
+    }
+  }, [screenIsFocused, agent])
 
   useEffect(() => {
     const shouldShowTour = enableToursConfig && store.tours.enableTours && !store.tours.seenCredentialsTour

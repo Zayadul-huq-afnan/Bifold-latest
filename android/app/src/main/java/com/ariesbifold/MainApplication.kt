@@ -14,6 +14,7 @@ import com.facebook.soloader.SoLoader
 import org.wonday.orientation.OrientationActivityLifecycle
 import com.himelbrand.ble.peripheral.RNBLEPackage
 import com.bleplx.BlePlxPackage
+import org.reactnative.camera.RNCameraPackage
  
 class MainApplication : Application(), ReactApplication {
  
@@ -25,6 +26,7 @@ class MainApplication : Application(), ReactApplication {
                     // add(MyReactNativePackage())
                     add(RNBLEPackage())
                     add(BlePlxPackage())
+                    add(RNCameraPackage())
                 }
  
             override fun getJSMainModuleName(): String = "index"
@@ -39,12 +41,12 @@ class MainApplication : Application(), ReactApplication {
         get() = getDefaultReactHost(this.applicationContext, reactNativeHost)
  
     override fun onCreate() {
+        registerActivityLifecycleCallbacks(OrientationActivityLifecycle.getInstance())
         super.onCreate()
         SoLoader.init(this, false)
         if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
             // If you opted-in for the New Architecture, we load the native entry point for this app.
             load()
         }
-        registerActivityLifecycleCallbacks(OrientationActivityLifecycle.getInstance())
     }
-}
+} 

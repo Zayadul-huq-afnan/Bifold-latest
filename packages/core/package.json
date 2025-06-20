@@ -223,5 +223,10 @@
       "module",
       "typescript"
     ]
+  },
+  "dependencies": {
+    "react-native-ble-peripheral": "^2.0.1",
+    "react-native-ble-plx": "^3.5.0",
+    "react-native-camera": "^4.2.1"
   }
 }

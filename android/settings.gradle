@@ -1,10 +1,10 @@
 rootProject.name = 'Aries-Bifold'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
-includeBuild('../node_modules/@react-native/gradle-plugin')
-
 include ':react-native-ble-peripheral'
 project(':react-native-ble-peripheral').projectDir = new File(rootProject.projectDir, '../../../packages/core/node_modules/react-native-ble-peripheral/android')
-
 include ':react-native-ble-plx'
 project(':react-native-ble-plx').projectDir = new File(rootProject.projectDir, '../../../packages/core/node_modules/react-native-ble-plx/android')
+include ':react-native-camera'
+project(':react-native-camera').projectDir = new File(rootProject.projectDir, '../../packages/core/node_modules/react-native-camera/android')
+includeBuild('../node_modules/@react-native/gradle-plugin') 
