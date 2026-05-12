@@ -1,19 +1,26 @@
 import { Agent } from '@credo-ts/core';
 import { saveJson } from './VCMetaData';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+export interface Credential {
+  id: string;
+  name: string;
+  issuer: string;
+  issueDate: string;
+  expiryDate?: string;
+  data: any;
+}
 
 // Function to get dynamic credential list from the agent
 export const getCredentialList = async (agent: Agent) => {
   try {
     if (!agent) {
-      console.error('Agent not available');
       return [];
     }
     
     const vcMetadataList = await saveJson(agent);
-    console.log('Dynamic credential list fetched:', vcMetadataList);
     return vcMetadataList;
   } catch (error) {
-    console.error('Error fetching credential list:', error);
     return [];
   }
 };
@@ -58,4 +65,21 @@ export const credentialList = [
       }
     }
   }
-]; 
+];
+
+export const loadCredentials = async (): Promise<Credential[]> => {
+  try {
+    const credentials = await AsyncStorage.getItem('credentials');
+    return credentials ? JSON.parse(credentials) : [];
+  } catch (error) {
+    return [];
+  }
+};
+
+export const saveCredentials = async (credentials: Credential[]): Promise<void> => {
+  try {
+    await AsyncStorage.setItem('credentials', JSON.stringify(credentials));
+  } catch (error) {
+    // Handle error silently
+  }
+}; 
